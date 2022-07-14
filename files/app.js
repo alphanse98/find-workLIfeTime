@@ -1,17 +1,13 @@
-var selectionVar = document.createElement("select");
+var yearVar = document.querySelector(".year");
+
 for (i = 1972; i <= 2006; i++) {
   optionVar = document.createElement("option");
   optionVar.innerText = i;
-  selectionVar.appendChild(optionVar);
+  yearVar.appendChild(optionVar);
 }
-// console.log(selectionVar)
-var yearVar = document.querySelector(".year");
-yearVar.appendChild(selectionVar);
 
-// select month
 var monthVar = document.querySelector(".month");
-
-monthFuc = () => {
+monthVar.addEventListener('change',function(){
   if (
     monthVar.value == "mar" ||
     monthVar.value == "aug" ||
@@ -22,9 +18,6 @@ monthFuc = () => {
     monthVar.value == "dec"
   ) {
     var a = 31;
-    // console.log(monthVar.value);
-  } else if (monthVar.value == "feb") {
-    a = 28;
   } else if (
     monthVar.value == "apr" ||
     monthVar.value == "sep" ||
@@ -33,16 +26,24 @@ monthFuc = () => {
   ) {
     a = 30;
   }
+  if (yearVar.value % 4 == 0) {
+    a = 29;
+  } else {
+    console.log(yearVar.value);
+    a = 28;
+  }
+
+  var dayVar = document.querySelector(".days");
+  dayVar.innerHTML = "";
+
   for (j = 1; j <= a; j++) {
     var dayOption = document.createElement("option");
-    var dayVar = document.querySelector(".days");
+
     dayOption.innerText = j;
+
     dayVar.appendChild(dayOption);
+    console.log(j);
   }
-};
+})
 
-// console.log(monthFUC())
-
-// monthVar.addEventListener('click',function(){
-//     console.log(monthVar.innerText)
-// })
+// year not change
