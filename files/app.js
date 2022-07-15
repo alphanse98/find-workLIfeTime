@@ -1,3 +1,6 @@
+var yearSelect, monthSelect, daySelect, retireSelect;
+
+//year option
 var yearVar = document.querySelector(".year");
 
 for (i = 1972; i <= 2006; i++) {
@@ -6,8 +9,15 @@ for (i = 1972; i <= 2006; i++) {
   yearVar.appendChild(optionVar);
 }
 
+// select year valu when you change
+yearVar.addEventListener("change", function () {
+  yearSelect = yearVar.value;
+  
+});
+
+//month option
 var monthVar = document.querySelector(".month");
-monthVar.addEventListener('change',function(){
+monthVar.addEventListener("change", function () {
   if (
     monthVar.value == "mar" ||
     monthVar.value == "aug" ||
@@ -25,8 +35,7 @@ monthVar.addEventListener('change',function(){
     monthVar.value == "nov"
   ) {
     a = 30;
-  }
-  if (yearVar.value % 4 == 0) {
+  } else if (yearVar.value % 4 == 0) {
     a = 29;
   } else {
     console.log(yearVar.value);
@@ -38,12 +47,41 @@ monthVar.addEventListener('change',function(){
 
   for (j = 1; j <= a; j++) {
     var dayOption = document.createElement("option");
-
     dayOption.innerText = j;
-
     dayVar.appendChild(dayOption);
-    console.log(j);
   }
-})
 
-// year not change
+  dayVar.addEventListener("change", function () {
+    daySelect = dayVar.value;
+  
+  });
+  monthSelect = monthVar.value;
+  
+});
+
+var retirementVar = document.querySelector(".Retirement");
+
+for (i = 45; i <= 65; i++) {
+  var retirementOptionVar = document.createElement("option");
+  retirementOptionVar.innerText = i;
+  retirementVar.appendChild(retirementOptionVar);
+}
+
+retirementVar.addEventListener("change", function () {
+  retireSelect = retirementVar.value;
+  
+  
+});
+
+var submitBtnVar = document.querySelector(".submitBtn");
+submitBtnVar.addEventListener("click", function () {
+  console.log(retireSelect);
+  console.log(yearSelect);
+  console.log(monthSelect);
+  console.log(daySelect);
+
+  
+
+});
+
+
