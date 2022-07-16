@@ -12,7 +12,6 @@ for (i = 1972; i <= 2006; i++) {
 // select year valu when you change
 yearVar.addEventListener("change", function () {
   yearSelect = yearVar.value;
-  
 });
 
 //month option
@@ -53,10 +52,8 @@ monthVar.addEventListener("change", function () {
 
   dayVar.addEventListener("change", function () {
     daySelect = dayVar.value;
-  
   });
   monthSelect = monthVar.value;
-  
 });
 
 var retirementVar = document.querySelector(".Retirement");
@@ -69,19 +66,12 @@ for (i = 45; i <= 65; i++) {
 
 retirementVar.addEventListener("change", function () {
   retireSelect = retirementVar.value;
-  
-  
 });
 
 var submitBtnVar = document.querySelector(".submitBtn");
 submitBtnVar.addEventListener("click", function () {
-  console.log(retireSelect);
+  // console.log(retireSelect);
   console.log(yearSelect);
   console.log(monthSelect);
   console.log(daySelect);
-
-  
-
 });
-
-
