@@ -1,8 +1,14 @@
-.list{
-    color: red;
-    
+.containerAll{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
-.BrandName{
-    margin-top: 30px;
-
+.subContainer{
+    background-color: blue;
+    width: 60%;
+    height: 70%;
+    
+    
 }

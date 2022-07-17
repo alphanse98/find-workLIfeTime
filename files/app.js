@@ -37,7 +37,6 @@ monthVar.addEventListener("change", function () {
   } else if (yearVar.value % 4 == 0) {
     a = 29;
   } else {
-    console.log(yearVar.value);
     a = 28;
   }
 
@@ -74,4 +73,14 @@ submitBtnVar.addEventListener("click", function () {
   console.log(yearSelect);
   console.log(monthSelect);
   console.log(daySelect);
+  var currentYear = (new Date().getFullYear())
+  var yearOfRetire = (~~yearSelect) + (~~retireSelect)
+  var future = (~~yearOfRetire) - currentYear  
+  var past = ((~~yearSelect) + currentYear) - 4000
+  console.log(future)
+  console.log(past)
+  
+  
+  
+
 });
