@@ -26,24 +26,24 @@ monthVar.addEventListener("change", function () {
     monthVar.value == "oct" ||
     monthVar.value == "dec"
   ) {
-    var a = 31;
+    var days = 31;
   } else if (
     monthVar.value == "apr" ||
     monthVar.value == "sep" ||
     monthVar.value == "june" ||
     monthVar.value == "nov"
   ) {
-    a = 30;
+    days = 30;
   } else if (yearVar.value % 4 == 0) {
-    a = 29;
+    days = 29;
   } else {
-    a = 28;
+    days = 28;
   }
 
   var dayVar = document.querySelector(".days");
   dayVar.innerHTML = "";
 
-  for (j = 1; j <= a; j++) {
+  for (j = 1; j <= days; j++) {
     var dayOption = document.createElement("option");
     dayOption.innerText = j;
     dayVar.appendChild(dayOption);
@@ -67,20 +67,36 @@ retirementVar.addEventListener("change", function () {
   retireSelect = retirementVar.value;
 });
 
+//submit btn action function
 var submitBtnVar = document.querySelector(".submitBtn");
 submitBtnVar.addEventListener("click", function () {
-  // console.log(retireSelect);
-  console.log(yearSelect);
-  console.log(monthSelect);
-  console.log(daySelect);
-  var currentYear = (new Date().getFullYear())
-  var yearOfRetire = (~~yearSelect) + (~~retireSelect)
-  var future = (~~yearOfRetire) - currentYear  
-  var past = ((~~yearSelect) + currentYear) - 4000
-  console.log(future)
-  console.log(past)
-  
-  
-  
 
+  var currentYear = (new Date().getFullYear());
+  var yearOfRetire = (~~yearSelect) + (~~retireSelect);
+  console.log(yearOfRetire)
+  var future = (~~yearOfRetire) - currentYear;  
+  var past = currentYear-(~~yearSelect);
+  console.log(future,'f');
+  console.log(past,'p');
+
+  var redBox;
+var para;
+// redBox.innerHTML = '';
+  for (i=1;i<=past;i++){
+    redBox = document.querySelector('.pastBox');
+    para = document.createElement('p');
+    para.setAttribute('class','redBOxp');
+    redBox.appendChild(para);
+  }
+
+  for (i=1;i<=future;i++){
+     redBox = document.querySelector('.pastBox');
+    para = document.createElement('p');
+    para.setAttribute('class','greenBoxp');
+    redBox.appendChild(para);
+  }
+  
 });
+
+
+

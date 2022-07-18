@@ -9,6 +9,18 @@
     background-color: blue;
     width: 60%;
     height: 70%;
-    
-    
+}
+.redBOxp{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: inline-block;
+    margin: 2px;
+}
+.greenBoxp{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(30, 219, 30);
+    display: inline-block;
+    margin: 2px;
 }
