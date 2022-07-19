@@ -8,14 +8,23 @@ for (i = 1972; i <= 2006; i++) {
   optionVar.innerText = i;
   yearVar.appendChild(optionVar);
 }
-
+var monthVar = document.querySelector(".month");
 // select year valu when you change
 yearVar.addEventListener("change", function () {
   yearSelect = yearVar.value;
+  
+// monthVar.click()
+if ("createEvent" in document) {
+  var evt = document.createEvent("HTMLEvents");
+  evt.initEvent("change", false, true);
+  monthVar.dispatchEvent(evt);
+}
+else
+monthVar.fireEvent("onchange");
 });
 
 //month option
-var monthVar = document.querySelector(".month");
+
 monthVar.addEventListener("change", function () {
   if (
     monthVar.value == "mar" ||
@@ -79,18 +88,18 @@ submitBtnVar.addEventListener("click", function () {
   console.log(future,'f');
   console.log(past,'p');
 
-  var redBox;
-var para;
-// redBox.innerHTML = '';
+  var redBox = document.querySelector('.pastBox');
+// var para;
+redBox.innerHTML = '';
   for (i=1;i<=past;i++){
-    redBox = document.querySelector('.pastBox');
-    para = document.createElement('p');
+    
+    var para = document.createElement('p');
     para.setAttribute('class','redBOxp');
     redBox.appendChild(para);
   }
 
   for (i=1;i<=future;i++){
-     redBox = document.querySelector('.pastBox');
+     
     para = document.createElement('p');
     para.setAttribute('class','greenBoxp');
     redBox.appendChild(para);
